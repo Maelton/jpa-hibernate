@@ -5,6 +5,12 @@ import br.com.maelton.learning_jpa.model.Produto;
 
 public class Main {
     public static void main(String[] args) {
-        ProdutoController.createProduto(new Produto());
+        
+        Produto cafe = new Produto();
+            cafe.setNome("Cafe Santa Clara");
+            cafe.setDescricao("Cafe Torrado e Moido Santa Clara Classico Pacote de 500g");
+            cafe.setPreco(17.99);
+        
+        ProdutoController.cadastrarProduto(cafe);
     }
 }

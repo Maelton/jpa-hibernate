@@ -1,27 +1,17 @@
 package br.com.maelton.learning_jpa.controller;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
+import br.com.maelton.learning_jpa.dao.ProdutoDao;
 import br.com.maelton.learning_jpa.model.Produto;
+import br.com.maelton.learning_jpa.util.JPAUtil;
 
 public class ProdutoController {
 
-    public static void createProduto(Produto produto) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("h2");
-        EntityManager em = emf.createEntityManager();
-        
-        em.getTransaction().begin();
-            em.persist(produto);
-        em.getTransaction().commit();
-        em.close();
-    }
+    private static EntityManager em = JPAUtil.getEntityManager();
+    private static ProdutoDao dao = new ProdutoDao(em);
 
-    /**
-    public static void createProduto(Produto produto) {
-        EntityManagerService.manager().getTransaction().begin();
-            EntityManagerService.manager().persist(produto);
-        EntityManagerService.manager().getTransaction().commit();
-    } */
+    public static void cadastrarProduto(Produto produto) {
+        dao.insertProduto(produto);
+    }
 }
