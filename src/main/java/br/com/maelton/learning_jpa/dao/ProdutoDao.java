@@ -49,6 +49,15 @@ public class ProdutoDao {
                     .setParameter("nome", nomeCategoria)
                     .getResultList();
     }
+
+    public Double selectPrecoById(int id) {
+        String JPQL = 
+        "SELECT produto.preco FROM Produto produto WHERE produto.id = ?1";
+
+        return this.persistenceContext.createQuery(JPQL, Double.class)
+                    .setParameter(1, id)
+                    .getSingleResult();
+    }
     
     public ProdutoDao(EntityManager persistenceContext) {
         this.persistenceContext = persistenceContext;

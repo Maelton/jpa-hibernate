@@ -40,11 +40,11 @@ public class Main {
         ProdutoController.cadastrarProduto(arroz);
 
         System.out.println(
-            ProdutoController.selecionarProdutoPorNomeCategoria("Alimentos")
+            ProdutoController.selecionarPrecoPorIdProduto(2)
         );
 
         System.out.println(
-            ProdutoController.selecionarProdutoPorNome("Cafe Santa Clara")
+            CategoriaController.selecionarNomePorIdCategoria(1)
         );
     }
 }

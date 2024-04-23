@@ -33,4 +33,8 @@ public class CategoriaController {
     public static String selecionarCategoriaPorNome(String nome) {
         return new Gson().toJson(dao.selectCategoriaByNome(nome));
     }
+
+    public static String selecionarNomePorIdCategoria(int id) {
+        return dao.selectNomeById(id);
+    }
 }

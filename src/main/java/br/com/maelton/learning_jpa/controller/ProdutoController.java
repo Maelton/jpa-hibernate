@@ -39,4 +39,8 @@ public class ProdutoController {
     public static String selecionarProdutoPorNomeCategoria(String nome) {
         return new Gson().toJson(dao.selectProdutoByNomeCategoria(nome));
     }
+
+    public static Double selecionarPrecoPorIdProduto(int id) {
+        return dao.selectPrecoById(id);
+    }
 }

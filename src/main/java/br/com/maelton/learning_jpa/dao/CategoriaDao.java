@@ -42,6 +42,15 @@ public class CategoriaDao {
                     .getResultList();
     }
 
+    public String selectNomeById(int id) {
+        String JPQL = 
+        "SELECT categoria.nome FROM Categoria categoria WHERE categoria.id = ?1";
+
+        return this.persistenceContext.createQuery(JPQL, String.class)
+                    .setParameter(1, id)
+                    .getSingleResult();
+    }
+
     public CategoriaDao(EntityManager persistenceContext) {
         this.persistenceContext = persistenceContext;
     }
