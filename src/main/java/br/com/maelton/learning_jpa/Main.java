@@ -20,5 +20,30 @@ public class Main {
                         );
         ProdutoController.cadastrarProduto(cafe);
         ProdutoController.deletarProduto(cafe);
+
+        Produto acucar = new Produto
+        (
+            "Acucar UNIAO", 
+            "Acucar Refinado Especial Uniao Pct 1kg",
+            33.00,
+            alimentos
+        );
+
+        Produto arroz = new Produto
+        (
+            "Arroz Tio João", 
+            "Arroz tio João - Tio João",
+            9.70,
+            alimentos
+        );
+
+        ProdutoController.cadastrarProduto(acucar);
+        ProdutoController.cadastrarProduto(arroz);
+
+        System.out.println(ProdutoController.selecionarProdutos());
+        System.out.println(ProdutoController.selecionarProdutoPorID(3));
+
+        System.out.println(CategoriaController.selecionarCategoriaPorID(1));
+        System.out.println(CategoriaController.selecionarCategorias());
     }
 }
