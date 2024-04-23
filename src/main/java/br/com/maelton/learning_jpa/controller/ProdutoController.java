@@ -11,4 +11,8 @@ public class ProdutoController {
     public static void cadastrarProduto(Produto produto) {
         dao.insertProduto(produto);
     }
+
+    public static void deletarProduto(Produto produto) {
+        dao.deleteProduto(produto);
+    }
 }

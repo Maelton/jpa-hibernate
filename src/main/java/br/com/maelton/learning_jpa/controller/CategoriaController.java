@@ -11,4 +11,8 @@ public class CategoriaController {
     public static void cadastrarCategoria(Categoria categoria) {
         dao.insertCategoria(categoria);
     }
+
+    public static void deletarCategoria(Categoria categoria) {
+        dao.deleteCategoria(categoria);
+    }
 }
