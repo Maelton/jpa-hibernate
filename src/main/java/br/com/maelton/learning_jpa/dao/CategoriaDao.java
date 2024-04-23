@@ -34,6 +34,14 @@ public class CategoriaDao {
         return this.persistenceContext.createQuery(JPQL, Categoria.class).getResultList();
     }
 
+    public List<Categoria> selectCategoriaByNome(String nome) {
+        String JPQL = "SELECT categorias FROM Categoria categorias WHERE categorias.nome = :nome";
+        return this.persistenceContext
+                    .createQuery(JPQL, Categoria.class)
+                    .setParameter("nome", nome)
+                    .getResultList();
+    }
+
     public CategoriaDao(EntityManager persistenceContext) {
         this.persistenceContext = persistenceContext;
     }

@@ -18,8 +18,6 @@ public class Main {
                             17.99,
                             alimentos
                         );
-        ProdutoController.cadastrarProduto(cafe);
-        ProdutoController.deletarProduto(cafe);
 
         Produto acucar = new Produto
         (
@@ -37,13 +35,16 @@ public class Main {
             alimentos
         );
 
+        ProdutoController.cadastrarProduto(cafe);
         ProdutoController.cadastrarProduto(acucar);
         ProdutoController.cadastrarProduto(arroz);
 
-        System.out.println(ProdutoController.selecionarProdutos());
-        System.out.println(ProdutoController.selecionarProdutoPorID(3));
+        System.out.println(
+            ProdutoController.selecionarProdutoPorNomeCategoria("Alimentos")
+        );
 
-        System.out.println(CategoriaController.selecionarCategoriaPorID(1));
-        System.out.println(CategoriaController.selecionarCategorias());
+        System.out.println(
+            ProdutoController.selecionarProdutoPorNome("Cafe Santa Clara")
+        );
     }
 }

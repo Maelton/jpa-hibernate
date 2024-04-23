@@ -33,6 +33,22 @@ public class ProdutoDao {
         String JPQL = "SELECT produtos FROM Produto produtos";
         return this.persistenceContext.createQuery(JPQL, Produto.class).getResultList();
     }
+
+    public List<Produto> selectProdutoByNome(String nome) {
+        String JPQL = "SELECT produtos FROM Produto produtos WHERE produtos.nome = :nome";
+        return this.persistenceContext
+                    .createQuery(JPQL, Produto.class)
+                    .setParameter("nome", nome)
+                    .getResultList();
+    }
+
+    public List<Produto> selectProdutoByNomeCategoria(String nomeCategoria) {
+        //Adeus JOIN() JPQL é Orientado a Objetos, JPQL é lindo
+        String JPQL = "SELECT produtos FROM Produto produtos WHERE produtos.categoria.nome = :nome";
+        return this.persistenceContext.createQuery(JPQL, Produto.class)
+                    .setParameter("nome", nomeCategoria)
+                    .getResultList();
+    }
     
     public ProdutoDao(EntityManager persistenceContext) {
         this.persistenceContext = persistenceContext;

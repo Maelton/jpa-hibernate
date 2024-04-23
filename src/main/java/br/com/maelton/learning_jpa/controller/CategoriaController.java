@@ -29,4 +29,8 @@ public class CategoriaController {
     public static String selecionarCategorias() {
         return new Gson().toJson(dao.selectAll());
     }
+
+    public static String selecionarCategoriaPorNome(String nome) {
+        return new Gson().toJson(dao.selectCategoriaByNome(nome));
+    }
 }

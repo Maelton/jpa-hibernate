@@ -1,7 +1,5 @@
 package br.com.maelton.learning_jpa.controller;
 
-import java.util.List;
-
 import com.google.gson.Gson;
 
 import br.com.maelton.learning_jpa.dao.ProdutoDao;
@@ -32,5 +30,13 @@ public class ProdutoController {
 
     public static String selecionarProdutos() {
         return new Gson().toJson(dao.selectAll());
+    }
+
+    public static String selecionarProdutoPorNome(String nome) {
+        return new Gson().toJson(dao.selectProdutoByNome(nome));
+    }
+
+    public static String selecionarProdutoPorNomeCategoria(String nome) {
+        return new Gson().toJson(dao.selectProdutoByNomeCategoria(nome));
     }
 }
