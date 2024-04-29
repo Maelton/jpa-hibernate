@@ -1,4 +1,4 @@
-package br.com.maelton.learning_jpa.util;
+package br.com.maelton.jpa_hibernate.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

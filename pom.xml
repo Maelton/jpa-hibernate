@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.maelton</groupId>
-    <artifactId>learning-jpa</artifactId>
+    <artifactId>jpa-hibernate</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
