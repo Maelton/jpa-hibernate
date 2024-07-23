@@ -1,25 +1,22 @@
 package br.com.maelton.jpa_hibernate.controller;
 
+import br.com.maelton.jpa_hibernate.dao.ProductDao;
 import com.google.gson.Gson;
 
-import br.com.maelton.jpa_hibernate.dao.ProductDao;
 import br.com.maelton.jpa_hibernate.model.Product;
-import br.com.maelton.jpa_hibernate.util.JPAUtil;
 
 public class ProductController {
 
-    private static ProductDao DAO = new ProductDao(JPAUtil.getEntityManager());
-
     public static void registerProduct(Product product) {
-        DAO.insert(product);
+        ProductDao.insert(product);
     }
 
     public static void deleteProduct(Product product) {
-        DAO.delete(product);
+        ProductDao.delete(product);
     }
 
     public static String selectProductById(int id) {
-        Product product = DAO.select(id);
+        Product product = ProductDao.select(id);
 
         return "{\n" +
                 "    id: " + product.getId() + "\n" +
@@ -29,18 +26,18 @@ public class ProductController {
     }
 
     public static String selectProducts() {
-        return new Gson().toJson(DAO.selectAll());
+        return new Gson().toJson(ProductDao.selectAll());
     }
 
     public static String selectProductByName(String name) {
-        return new Gson().toJson(DAO.selectByName(name));
+        return new Gson().toJson(ProductDao.selectByName(name));
     }
 
     public static String selectProductByCategoryName(String name) {
-        return new Gson().toJson(DAO.selectByCategory(name));
+        return new Gson().toJson(ProductDao.selectByCategory(name));
     }
 
     public static Double selectProductPriceById(int id) {
-        return DAO.selectPrice(id);
+        return ProductDao.selectPrice(id);
     }
 }

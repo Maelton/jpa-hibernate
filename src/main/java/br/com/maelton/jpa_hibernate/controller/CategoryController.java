@@ -1,25 +1,22 @@
 package br.com.maelton.jpa_hibernate.controller;
 
+import br.com.maelton.jpa_hibernate.dao.CategoryDao;
 import com.google.gson.Gson;
 
-import br.com.maelton.jpa_hibernate.dao.CategoryDao;
 import br.com.maelton.jpa_hibernate.model.Category;
-import br.com.maelton.jpa_hibernate.util.JPAUtil;
 
 public class CategoryController {
-    
-    private static CategoryDao DAO = new CategoryDao(JPAUtil.getEntityManager());
 
     public static void registerCategory(Category category) {
-        DAO.insert(category);
+        CategoryDao.insert(category);
     }
 
     public static void deletarCategoria(Category category) {
-        DAO.delete(category);
+        CategoryDao.delete(category);
     }
 
     public static String selectCategoryById(int id) {
-        Category category = DAO.select(id);
+        Category category = CategoryDao.select(id);
 
         return "{\n" +
                 "    id: " + category.getId() + "\n" +
@@ -27,14 +24,14 @@ public class CategoryController {
     }
 
     public static String selectCategories() {
-        return new Gson().toJson(DAO.selectAll());
+        return new Gson().toJson(CategoryDao.selectAll());
     }
 
     public static String selectCategoryByName(String name) {
-        return new Gson().toJson(DAO.selectByName(name));
+        return new Gson().toJson(CategoryDao.selectByName(name));
     }
 
     public static String selectCategoryNameById(int id) {
-        return DAO.selectName(id);
+        return CategoryDao.selectName(id);
     }
 }
